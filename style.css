@@ -1,0 +1,234 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #ff2562;
+    clip-path: polygon(58% 0, 100% 0, 100% 100%, 82% 100%);
+    animation: fade-in 0.5s forwards ease-in;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+section .content {
+    position: relative;
+    flex-basis: 50%;
+    animation: left-in 0.5s forwards ease-in;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+section .content h2 {
+    color: #ffffff;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+section .content p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 100;
+}
+
+section .content a {
+    text-transform: uppercase;
+    background: #ff2562;
+    padding: 13px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+section .content a:hover {
+    background: #ff0d52;
+    transform: scale(1.1);
+}
+
+section .imgBox {
+    position: relative;
+}
+
+section .imgBox img {
+    max-height: 600px;
+    animation: fade-in 0.5s forwards ease-in;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+.nav {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    border-left: 5px solid #ff2562;
+    padding-left: 10px;
+    animation: left-in 0.5s forwards ease-in;
+    animation-delay: 0s;
+    opacity: 0;
+}
+
+.nav li {
+    list-style: none;
+}
+
+.nav li a {
+    padding: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.nav li a:hover, .nav li a.active {
+    color: #ff2562;
+}
+
+.midias {
+    position: absolute;
+    bottom: 50px;
+    font-weight: bold;
+    animation: left-in 0.5s forwards ease-in;
+    animation-delay: 0.7s;
+    opacity: 0;
+}
+.midias a:hover {
+    color: #ffffff;
+}
+
+.midias a {
+    padding: 5px;
+    color: #ff2562;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes left-in {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+#toggle {
+    display: none;
+}
+
+@media (max-width:996px) {
+    #toggle {
+        display: block;
+        height: 40px;
+        width: 40px;
+        z-index: 3;
+        position: absolute;
+        right: 100px;
+        top:40px;
+        cursor: pointer;
+    }
+    #toggle::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        height: 5px;
+        width: 38px;
+        background: #ffffff;
+        box-shadow: 0 12px 0 #ffffff;
+        transition: 0.5s;
+    }
+    #toggle::after {
+        content: '';
+        position:absolute;
+        bottom: 7px;
+        height: 5px;
+        width: 38px;
+        background: #ffffff;
+        transition: 0.5s;
+    }
+    #toggle.active::before {
+        box-shadow: 0 0 0 #ffffff;
+        transform: rotate(45deg);
+    }
+    #toggle.active::after {
+        bottom: 31px;
+        box-shadow: 0 0 0 #ffffff;
+        transform: rotate(-45deg);
+    }
+    .nav {
+        flex-direction: column;
+        background: rgba(0, 0, 0, .95);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 40px;
+        padding-left: 30px;
+        display: none;
+    }
+    #nav.active {
+        display: flex;
+    }
+    .nav li {
+        margin: 5px 0;
+    }
+    section {
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 50px;
+    }
+    section::before {
+        clip-path: polygon(0 0, 100% 0, 100% 15%, 0% 26%);
+    }
+    section .content {       
+        flex-basis: 50%;
+        padding: 50px;
+        margin-bottom: 30px;
+    }
+    section .imgBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+    }
+    section .imgBox img {
+        max-width: 350px;
+    }
+}

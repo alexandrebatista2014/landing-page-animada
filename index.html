@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page animated - html e css</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <section>
+        <div class="content">
+            <h2>O melhor jogador do mundo</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima maiores quae eos laboriosam facere
+                laborum, dolorem inventore deleniti saepe dolore alias reprehenderit molestias voluptatem voluptate?
+                Iusto tempora praesentium minima cum.</p>
+                <a href="">Saiba mais</a>
+        </div>
+        <div class="imgBox">
+            <img src="img-cristiano.png" alt="Imagem Jogador">
+        </div>
+        <ul class="nav" id="nav" onclick="toggleMenu()">
+            <li><a href="">Home</a></li>
+            <li><a class="active" href="">Sobre</a></li>
+            <li><a href="">Jogadas</a></li>
+            <li><a href="">Treino</a></li>
+            <li><a href="">Contratar</a></li>
+        </ul>
+        <span id="toggle" onclick="toggleMenu()"></span>
+        <div class="midias">
+            <a href="">Facebook</a>
+            <a href="">Instagram</a>
+            <a href="">Youtube</a>
+        </div>
+    </section>
+
+    <script type="text/javascript" >
+
+        function toggleMenu() {
+            var toggle = document.getElementById('toggle')
+            toggle.classList.toggle('active')
+            var nav = document.getElementById('nav')
+            nav.classList.toggle('active')
+        }
+
+    </script>
+
+</body>
+
+</html>
